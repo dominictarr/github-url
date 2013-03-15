@@ -1,7 +1,7 @@
 
-var http = /(https?):\/\/github.com\/([^\/]+)\/([^\/]+).git$/
-var git  = /(git):\/\/github.com\/([^\/]+)\/([^\/]+).git$/
-var ssh  = /(git@)github.com:([^\/]+)\/([^\/]+).git$/
+var http = /(https?):\/\/github.com\/([^\/]+)\/([^\/]+?)(.git)?$/
+var git  = /(git):\/\/github.com\/([^\/]+)\/([^\/]+?)(.git)?$/
+var ssh  = /(git@)github.com:([^\/]+)\/([^\/]+?)(.git)?$/
 
 module.exports = function (repo) {
   if('object' === typeof repo)
