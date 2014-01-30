@@ -1,9 +1,11 @@
 
-var http = /(https?):\/\/github.com\/([^\/]+)\/([^\/]+).git$/
-var git  = /(git):\/\/github.com\/([^\/]+)\/([^\/]+).git$/
-var ssh  = /(git@)github.com:([^\/]+)\/([^\/]+).git$/
+module.exports = function (repo, githubHost) {
+  githubHost = githubHost || 'github.com'
 
-module.exports = function (repo) {
+  var http = new RegExp('(https?):\/\/' + githubHost + '\/([^\/]+)\/([^\/]+).git$')
+  var git  = new RegExp('(git):\/\/' + githubHost + '\/([^\/]+)\/([^\/]+).git$')
+  var ssh  = new RegExp('(git@)' + githubHost + ':([^\/]+)\/([^\/]+).git$')
+
   if('object' === typeof repo)
     repo = repo.url
   var m
@@ -13,8 +15,10 @@ module.exports = function (repo) {
     }
 }
 
-module.exports.toUrl = function (repo) {
-  repo =  module.exports(repo)
-  return 'https://github.com/' + repo.user + '/' + repo.project
+module.exports.toUrl = function (repo, githubHost) {
+  githubHost = githubHost || 'github.com'
+
+  repo =  module.exports(repo, githubHost)
+  return 'https://' + githubHost + '/' + repo.user + '/' + repo.project
 }
 
