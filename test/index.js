@@ -12,6 +12,16 @@ test ('github repo -> object', function (t) {
       parse('git@github.com:dominictarr/rumours.git')
       , {user: 'dominictarr', project: 'rumours', protocol: 'ssh'})
 
+    t.deepEqual(
+      parse('https://github.com/dominictarr/rumours')
+      , {user: 'dominictarr', project: 'rumours', protocol: 'https'})
+    t.deepEqual(
+      parse('git://github.com/dominictarr/rumours')
+      , {user: 'dominictarr', project: 'rumours', protocol: 'git'})
+    t.deepEqual(
+      parse('git@github.com:dominictarr/rumours')
+      , {user: 'dominictarr', project: 'rumours', protocol: 'ssh'})
+
     t.end()
   })
 

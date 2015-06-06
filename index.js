@@ -2,9 +2,9 @@
 module.exports = function (repo, githubHost) {
   githubHost = githubHost || 'github.com'
 
-  var http = new RegExp('(https?):\/\/' + githubHost + '\/([^\/]+)\/([^\/]+).git$')
-  var git  = new RegExp('(git):\/\/' + githubHost + '\/([^\/]+)\/([^\/]+).git$')
-  var ssh  = new RegExp('(git@)' + githubHost + ':([^\/]+)\/([^\/]+).git$')
+  var http = new RegExp('(https?):\/\/' + githubHost + '\/([^\/]+)\/([^\/]+?)(\.git)?$')
+  var git  = new RegExp('(git):\/\/' + githubHost + '\/([^\/]+)\/([^\/]+?)(\.git)?$')
+  var ssh  = new RegExp('(git@)' + githubHost + ':([^\/]+)\/([^\/]+?)(\.git)?$')
 
   if('object' === typeof repo)
     repo = repo.url
