@@ -1,7 +1,7 @@
 {
   "name": "github-url",
   "description": "turn a repository: package.json field to a github url",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/dominictarr/github-url",
   "repository": {
     "type": "git",
